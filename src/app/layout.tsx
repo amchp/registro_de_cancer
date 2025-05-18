@@ -4,6 +4,7 @@ import { type Metadata } from "next";
 import { Geist } from "next/font/google";
 
 import { TRPCReactProvider } from "~/trpc/react";
+import Navbar from "./_layout/Navbar";
 
 export const metadata: Metadata = {
   title: "Registro de Cancer",
@@ -22,11 +23,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geist.variable}`}>
       <body>
-      <div className="min-h-screen flex flex-col">
+        <div className="flex min-h-screen flex-col">
+          <Navbar />
           <div className="flex-grow">
             <TRPCReactProvider>{children}</TRPCReactProvider>
           </div>
-      </div>
+        </div>
       </body>
     </html>
   );

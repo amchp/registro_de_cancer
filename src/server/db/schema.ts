@@ -10,7 +10,9 @@ import { index, sqliteTableCreator } from "drizzle-orm/sqlite-core";
  *
  * @see https://orm.drizzle.team/docs/goodies#multi-project-schema
  */
-export const createTable = sqliteTableCreator((name) => `registro_de_cancer_${name}`);
+export const createTable = sqliteTableCreator(
+  (name) => `registro_de_cancer_${name}`,
+);
 
 export const posts = createTable(
   "post",
@@ -23,5 +25,5 @@ export const posts = createTable(
       .notNull(),
     updatedAt: d.integer({ mode: "timestamp" }).$onUpdate(() => new Date()),
   }),
-  (t) => [index("name_idx").on(t.name)]
+  (t) => [index("name_idx").on(t.name)],
 );

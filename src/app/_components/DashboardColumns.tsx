@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { ColumnDef } from "@tanstack/react-table"
-import type { DashboardType } from "~/lib/mockData"
+import type { ColumnDef } from "@tanstack/react-table";
+import type { DashboardType } from "~/models/dashboardData";
 
-export const columns: ColumnDef<DashboardType>[] = [
+export const DashboardColumns: ColumnDef<DashboardType>[] = [
   {
     accessorKey: "diagnosisYear",
     header: "Año Incidencia",
@@ -23,7 +23,7 @@ export const columns: ColumnDef<DashboardType>[] = [
   {
     accessorKey: "age",
     header: "Edad",
-    cell: info => info.getValue<number>(),
+    cell: (info) => info.getValue<number>(),
   },
   {
     accessorKey: "ageUnit",
@@ -65,5 +65,4 @@ export const columns: ColumnDef<DashboardType>[] = [
     accessorKey: "diagnosisMethod",
     header: "Método de Diagnóstico",
   },
-]
-
+];
