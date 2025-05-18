@@ -31,8 +31,8 @@ export const PatientColumns: ColumnDef<Patient>[] = [
     accessorKey: "secondLastName",
   },
   {
-    header: "Género",
-    accessorKey: "gender",
+    header: "Sexo",
+    accessorKey: "sex",
   },
   {
     header: "Edad",

@@ -140,7 +140,7 @@ const DashboardFilters: React.FC<DashboardFiltersProps> = ({
 }) => {
   const [filters, setFilters] = useState({
     yearRange: ["2019", "2023"],
-    gender: "",
+    sex: "",
     ageRange: ["0", "100"],
     subregion: "",
     municipality: "",
@@ -191,7 +191,7 @@ const DashboardFilters: React.FC<DashboardFiltersProps> = ({
   const handleApply = () => {
     const formattedFilters = {
       yearRange: filters.yearRange.join("-"),
-      gender: filters.gender,
+      sex: filters.sex,
       ageRange: filters.ageRange.join("-"),
       subregion: filters.subregion,
       municipality: filters.municipality,
@@ -208,7 +208,7 @@ const DashboardFilters: React.FC<DashboardFiltersProps> = ({
   const handleReset = () => {
     setFilters({
       yearRange: ["2019", "2023"],
-      gender: "",
+      sex: "",
       ageRange: ["0", "100"],
       subregion: "",
       municipality: "",
@@ -265,12 +265,12 @@ const DashboardFilters: React.FC<DashboardFiltersProps> = ({
 
         {/* Sexo */}
         <div className="space-y-2">
-          <Label htmlFor="gender">Sexo</Label>
+          <Label htmlFor="sex">Sexo</Label>
           <Select
-            value={filters.gender}
-            onValueChange={(value) => handleChange("gender", value)}
+            value={filters.sex}
+            onValueChange={(value) => handleChange("sex", value)}
           >
-            <SelectTrigger id="gender">
+            <SelectTrigger id="sex">
               <SelectValue placeholder="Seleccionar" />
             </SelectTrigger>
             <SelectContent>

@@ -5,7 +5,7 @@ interface PatientDetailCardProps {
   patient: Patient;
 }
 
-export default function PatientDetailCard({ patient }) {
+export default function PatientDetailCard({ patient }: PatientDetailCardProps) {
   return (
     <Card className="mb-6">
       <CardContent className="p-6">
@@ -39,9 +39,9 @@ export default function PatientDetailCard({ patient }) {
               Género
             </h3>
             <p className="text-lg">
-              {patient.gender === "M"
+              {patient.sex === "M"
                 ? "Masculino"
-                : patient.gender === "F"
+                : patient.sex === "F"
                   ? "Femenino"
                   : "Otro"}
             </p>
