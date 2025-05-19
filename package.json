@@ -89,10 +89,10 @@
   },
   "overrides": {
     "shadcn-dropzone": {
-      "react": "^19.1.0"
+      "react": "^19.0.0",
+      "react-dom": "^19.0.0"
     }
-  },
-  "ct3aMetadata": {
+  },  "ct3aMetadata": {
     "initVersion": "7.39.3"
   },
   "packageManager": "npm@10.9.2"
