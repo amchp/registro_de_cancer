@@ -13,7 +13,9 @@ export default function PatientDetail() {
   const params = useParams<{ tag: string; item: string }>();
   const patientId = params.id;
   const patient = mockPatients.find((u) => u.id === patientId)!;
-  const currentPatientDiagnostic = mockDiagnoses.filter((u) => u.patientId === patientId);
+  const currentPatientDiagnostic = mockDiagnoses.filter(
+    (u) => u.patientId === patientId,
+  );
   const changePage = (page: number): void => {};
   return (
     <div className="container py-6">
@@ -28,7 +30,11 @@ export default function PatientDetail() {
       </PageHeader>
       <PatientDetailCard patient={patient} />
 
-      <DataTable data={currentPatientDiagnostic} columns={CancerDiagnosisColumns} onPaginationChangeAction={changePage} />
+      <DataTable
+        data={currentPatientDiagnostic}
+        columns={CancerDiagnosisColumns}
+        onPaginationChangeAction={changePage}
+      />
     </div>
   );
 }

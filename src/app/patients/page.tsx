@@ -17,7 +17,7 @@ export default function Pacients() {
         title="Lista de Pacientes"
         description="Gestione y busque pacientes registrados en el sistema."
       >
-        <FileUploadModal/>
+        <FileUploadModal />
         <Button variant="outline" size="sm">
           <Download className="mr-2 h-4 w-4" />
           Descargar CSV
