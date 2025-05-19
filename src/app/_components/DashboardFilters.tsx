@@ -1,6 +1,6 @@
 "use client";
 import type React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Input } from "~/components/ui/input";
 import {
   Select,
@@ -134,12 +134,12 @@ const ALL_MUNICIPALITIES = Object.values(ANTIOQUIA_MUNICIPALITIES)
   .sort();
 
 interface DashboardFiltersProps {
-  onApplyFilters: (filters: any) => void;
+  onApplyFilters: (filters: Record<string, string>) => void;
 }
 
 export default function DashboardFilters({
   onApplyFilters,
-}: DashboardFiltersProps){
+}: DashboardFiltersProps) {
   const [filters, setFilters] = useState({
     yearRange: ["2019", "2023"],
     sex: "",
@@ -153,32 +153,7 @@ export default function DashboardFilters({
     multiplePrimaries: "",
   });
 
-  const [availableMunicipalities, setAvailableMunicipalities] =
-    useState<string[]>(ALL_MUNICIPALITIES);
-
-  // Update available municipalities when subregion changes
-  useEffect(() => {
-    if (filters.subregion) {
-      setAvailableMunicipalities(
-        ANTIOQUIA_MUNICIPALITIES[
-          filters.subregion as keyof typeof ANTIOQUIA_MUNICIPALITIES
-        ] || [],
-      );
-      // Reset municipality when changing subregion
-      if (
-        filters.municipality &&
-        !ANTIOQUIA_MUNICIPALITIES[
-          filters.subregion as keyof typeof ANTIOQUIA_MUNICIPALITIES
-        ]?.includes(filters.municipality)
-      ) {
-        setFilters((prev) => ({ ...prev, municipality: "" }));
-      }
-    } else {
-      setAvailableMunicipalities(ALL_MUNICIPALITIES);
-    }
-  }, [filters.subregion]);
-
-  const handleChange = (name: string, value: any) => {
+  const handleChange = (name: string, value: string) => {
     setFilters((prev) => ({ ...prev, [name]: value }));
   };
 
@@ -277,7 +252,7 @@ export default function DashboardFilters({
                 <SelectTrigger id="sex" className="h-10 w-full">
                   <SelectValue placeholder="Seleccionar" />
                 </SelectTrigger>
-                <SelectContent className="bg-white border z-50 rounded-md p-1 shadow-lg">
+                <SelectContent className="z-50 rounded-md border bg-white p-1 shadow-lg">
                   <SelectGroup>
                     <SelectItem value="M">Masculino</SelectItem>
                     <SelectItem value="F">Femenino</SelectItem>
@@ -342,7 +317,7 @@ export default function DashboardFilters({
                   <SelectContent
                     sideOffset={4}
                     position="popper"
-                    className="bg-white border z-50 rounded-md p-1 shadow-lg"
+                    className="z-50 rounded-md border bg-white p-1 shadow-lg"
                   >
                     <SelectGroup>
                       {ANTIOQUIA_SUBREGIONS.map((subregion) => (
@@ -370,9 +345,9 @@ export default function DashboardFilters({
                 <SelectTrigger id="municipality" className="h-10 w-full">
                   <SelectValue placeholder="Seleccionar" />
                 </SelectTrigger>
-                <SelectContent className="bg-white border z-50 max-h-60 overflow-y-auto rounded-md p-1 shadow-lg">
+                <SelectContent className="z-50 max-h-60 overflow-y-auto rounded-md border bg-white p-1 shadow-lg">
                   <SelectGroup>
-                    {availableMunicipalities.map((municipality) => (
+                    {ALL_MUNICIPALITIES.map((municipality) => (
                       <SelectItem key={municipality} value={municipality}>
                         {municipality}
                       </SelectItem>
@@ -501,7 +476,7 @@ export default function DashboardFilters({
                 <SelectTrigger id="behavior" className="h-10 w-full">
                   <SelectValue placeholder="Seleccionar" />
                 </SelectTrigger>
-                <SelectContent className="bg-white border z-50 rounded-md p-1 shadow-lg">
+                <SelectContent className="z-50 rounded-md border bg-white p-1 shadow-lg">
                   <SelectGroup>
                     <SelectItem value="1">Benigno</SelectItem>
                     <SelectItem value="2">Incierto</SelectItem>
@@ -519,12 +494,14 @@ export default function DashboardFilters({
             <div className="w-full">
               <Select
                 value={filters.multiplePrimaries}
-                onValueChange={(value) => handleChange("multiplePrimaries", value)}
+                onValueChange={(value) =>
+                  handleChange("multiplePrimaries", value)
+                }
               >
                 <SelectTrigger id="multiplePrimaries" className="h-10 w-full">
                   <SelectValue placeholder="Seleccionar" />
                 </SelectTrigger>
-                <SelectContent className="bg-white border z-50 rounded-md p-1 shadow-lg">
+                <SelectContent className="z-50 rounded-md border bg-white p-1 shadow-lg">
                   <SelectGroup>
                     <SelectItem value="yes">Sí</SelectItem>
                     <SelectItem value="no">No</SelectItem>
@@ -546,11 +523,11 @@ export default function DashboardFilters({
         </Button>
         <Button
           onClick={handleApply}
-          className="bg-blue-600 hover:bg-blue-700 text-white min-w-[100px]"
+          className="min-w-[100px] bg-blue-600 text-white hover:bg-blue-700"
         >
           Aplicar
         </Button>
       </div>
     </div>
   );
-};
+}

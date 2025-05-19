@@ -1,5 +1,6 @@
 import fs from "fs";
 import type { CancerDiagnosis } from "~/models/cancerDiagnosis";
+import type { DashboardType } from "~/models/dashboardData";
 import type { Patient } from "~/models/patients";
 
 const generateMockUsers = (count: number): Patient[] => {
@@ -21,23 +22,29 @@ const generateMockUsers = (count: number): Patient[] => {
     "Sur",
   ];
 
-  return Array.from({ length: count }, (_, i) => ({
-    id: `patient-${i + 1}`,
-    documentType:
-      documentTypes[Math.floor(Math.random() * documentTypes.length)],
-    documentNumber: Math.floor(1000000 + Math.random() * 9000000).toString(),
-    firstName: `Nombre${i + 1}`,
-    secondName: Math.random() > 0.3 ? `Segundo${i + 1}` : null,
-    lastName: `Apellido${i + 1}`,
-    secondLastName: Math.random() > 0.3 ? `SegundoApellido${i + 1}` : null,
-    sex: sex[Math.floor(Math.random() * sex.length)],
-    age: Math.floor(Math.random() * 100),
-    ageUnit: ageUnits[Math.floor(Math.random() * ageUnits.length)],
-    municipality:
-      municipalities[Math.floor(Math.random() * municipalities.length)],
-    subregion: subregions[Math.floor(Math.random() * subregions.length)],
-    address: `Calle ${Math.floor(Math.random() * 100)} #${Math.floor(Math.random() * 100)}-${Math.floor(Math.random() * 100)}`,
-  }));
+  return Array.from(
+    { length: count },
+    (_, i) =>
+      ({
+        id: `patient-${i + 1}`,
+        documentType:
+          documentTypes[Math.floor(Math.random() * documentTypes.length)],
+        documentNumber: Math.floor(
+          1000000 + Math.random() * 9000000,
+        ).toString(),
+        firstName: `Nombre${i + 1}`,
+        secondName: Math.random() > 0.3 ? `Segundo${i + 1}` : null,
+        lastName: `Apellido${i + 1}`,
+        secondLastName: Math.random() > 0.3 ? `SegundoApellido${i + 1}` : null,
+        sex: sex[Math.floor(Math.random() * sex.length)],
+        age: Math.floor(Math.random() * 100),
+        ageUnit: ageUnits[Math.floor(Math.random() * ageUnits.length)],
+        municipality:
+          municipalities[Math.floor(Math.random() * municipalities.length)],
+        subregion: subregions[Math.floor(Math.random() * subregions.length)],
+        address: `Calle ${Math.floor(Math.random() * 100)} #${Math.floor(Math.random() * 100)}-${Math.floor(Math.random() * 100)}`,
+      }) as Patient,
+  );
 };
 
 // Generate mock diagnoses
@@ -121,21 +128,24 @@ const generateMockDiagnoses = (
         patientId: patient.id,
         diagnosisYear,
         diagnosisMethod:
-          diagnosisMethods[Math.floor(Math.random() * diagnosisMethods.length)],
+          diagnosisMethods[
+            Math.floor(Math.random() * diagnosisMethods.length)
+          ] ?? "",
         incidenceDate: `${diagnosisYear}-${incidenceMonth}-${incidenceDay}`,
         mortalityDate,
-        topographicCode: topographicCodes[topographicIndex],
-        topographicName: topographicNames[topographicIndex],
-        morphologicCode: morphologicCodes[morphologicIndex],
-        morphologicName: morphologicNames[morphologicIndex],
-        cie10Code: cie10Codes[cie10Index],
-        cie10Name: cie10Names[cie10Index],
-        behavior: behaviors[Math.floor(Math.random() * behaviors.length)],
-        tumorState: tumorStates[Math.floor(Math.random() * tumorStates.length)],
+        cieOTopographicCode: topographicCodes[topographicIndex],
+        cieOTopographicName: topographicNames[topographicIndex],
+        cieOMorphologicCode: morphologicCodes[morphologicIndex],
+        cieOMorphologicName: morphologicNames[morphologicIndex],
+        cie10Code: cie10Codes[cie10Index] ?? "",
+        cie10Name: cie10Names[cie10Index] ?? "",
+        behavior: behaviors[Math.floor(Math.random() * behaviors.length)] ?? "",
+        tumorState:
+          tumorStates[Math.floor(Math.random() * tumorStates.length)] ?? "",
         multiple: Math.random() > 0.8,
         deathCertificateNumber,
         registeredCauseOfDeath,
-      });
+      } as CancerDiagnosis);
     }
   });
 
@@ -161,7 +171,7 @@ const mockDashboardData = mockDiagnoses.map((diagnosis) => {
     municipality: patient.municipality,
     subregion: patient.subregion,
     address: patient.address,
-  };
+  } as DashboardType;
 });
 
 fs.writeFileSync("./mockPatients.json", JSON.stringify(mockPatients, null, 2));
@@ -170,6 +180,6 @@ fs.writeFileSync(
   JSON.stringify(mockDiagnoses, null, 2),
 );
 fs.writeFileSync(
-  "./mockDiagnoses.json",
+  "./mockDashboardData.json",
   JSON.stringify(mockDashboardData, null, 2),
 );

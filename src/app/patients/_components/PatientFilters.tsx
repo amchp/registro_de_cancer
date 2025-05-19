@@ -2,14 +2,14 @@ import React from "react";
 import { Input } from "~/components/ui/input";
 
 interface PatientFiltersProps {
-  onApplyFilters: (filters: Record<string, any>) => void;
+  onApplyFilters: (filters: Record<string, string>) => void;
 }
 
 const PatientFilters: React.FC<PatientFiltersProps> = ({ onApplyFilters }) => {
   const [filters, setFilters] = React.useState({
     searchBox: "",
   });
-  const handleChange = (name: string, value: any) => {
+  const handleChange = (name: string, value: string) => {
     setFilters((prev) => ({ ...prev, [name]: value }));
     handleApply();
   };
@@ -34,7 +34,7 @@ const PatientFilters: React.FC<PatientFiltersProps> = ({ onApplyFilters }) => {
             id="search"
             placeholder="Escriba para buscar paciente..."
             value={filters.searchBox}
-            onChange={(e) => handleChange("searchBox", e)}
+            onChange={(e) => handleChange("searchBox", e.target.value)}
             className="w-full"
           />
         </div>

@@ -37,7 +37,7 @@ export function DataTable<TData, TValue>({
 
   React.useEffect(() => {
     onPaginationChangeAction(pagination.pageIndex);
-  }, [pagination]);
+  }, [pagination, onPaginationChangeAction]);
 
   const table = useReactTable({
     data,

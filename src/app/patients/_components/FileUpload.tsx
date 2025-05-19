@@ -58,7 +58,7 @@ export default function FileUploadModal() {
               }}
               multiple={false}
               onDrop={(files) => {
-                if (files.length > 0) setSelectedFile(files[0]);
+                if (files.length > 0) setSelectedFile(files[0]!);
               }}
             >
               {({
@@ -75,7 +75,7 @@ export default function FileUploadModal() {
                   <input {...getInputProps()} />
                   <p className="mt-2 text-sm text-gray-600">
                     {acceptedFiles.length > 0
-                      ? acceptedFiles[0].name
+                      ? acceptedFiles[0]!.name
                       : "Arrastra aquí tu archivo o haz clic para seleccionarlo"}
                   </p>
                   <p className="mt-1 text-xs text-gray-500">

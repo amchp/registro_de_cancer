@@ -26,13 +26,13 @@ export default function PatientDetailCard({ patient }: PatientDetailCardProps) {
             <h3 className="text-muted-foreground text-sm font-medium">
               Nombres
             </h3>
-            <p className="text-lg">{`${patient.firstName} ${patient.secondName || ""}`}</p>
+            <p className="text-lg">{`${patient.firstName} ${patient.secondName ?? ""}`}</p>
           </div>
           <div>
             <h3 className="text-muted-foreground text-sm font-medium">
               Apellidos
             </h3>
-            <p className="text-lg">{`${patient.lastName} ${patient.secondLastName || ""}`}</p>
+            <p className="text-lg">{`${patient.lastName} ${patient.secondLastName ?? ""}`}</p>
           </div>
           <div>
             <h3 className="text-muted-foreground text-sm font-medium">

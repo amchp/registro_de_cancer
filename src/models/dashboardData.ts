@@ -1,6 +1,6 @@
 export interface DashboardType {
   id: string;
-  userId: string;
+  patientId: string;
   diagnosisYear: number;
   diagnosisMethod: string;
   incidenceDate: string;

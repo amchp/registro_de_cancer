@@ -8,8 +8,12 @@ import { DataTable } from "~/components/ui/DataTable";
 import DashboardFilters from "./_components/DashboardFilters";
 
 export default function Home() {
-  const applyFilters = (filters: Record<string, any>): void => {};
-  const changePage = (page: number): void => {};
+  const applyFilters = (filters: Record<string, string>): void => {
+    console.log(filters);
+  };
+  const changePage = (page: number): void => {
+    console.log(page);
+  };
   return (
     <div className="container py-6">
       <PageHeader
