@@ -38,19 +38,19 @@ export const DashboardColumns: ColumnDef<DashboardType>[] = [
     header: "Nombre del código CIE-10",
   },
   {
-    accessorKey: "topographicCode",
+    accessorKey: "cieOTopographicCode",
     header: "Código Topográfico CIE O",
   },
   {
-    accessorKey: "topographicName",
+    accessorKey: "cieOTopographicName",
     header: "Nombre del Código Topográfico CIE O",
   },
   {
-    accessorKey: "morphologicCode",
+    accessorKey: "cieOMorphologicCode",
     header: "Código Morfológico CIE O",
   },
   {
-    accessorKey: "morphologicName",
+    accessorKey: "cieOMorphologicName",
     header: "Nombre del Código Morfológico CIE O",
   },
   {
