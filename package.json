@@ -91,7 +91,7 @@
     "shadcn-dropzone": {
       "react": "^19.1.0"
     }
-  }
+  },
   "ct3aMetadata": {
     "initVersion": "7.39.3"
   },
