@@ -30,19 +30,19 @@ export const CancerDiagnosisColumns: ColumnDef<CancerDiagnosis>[] = [
   },
   {
     header: "Código CIEO Topográfico",
-    accessorKey: "topographicCode",
+    accessorKey: "cieOTopographicCode",
   },
   {
     header: "Nombre CIEO Topográfico",
-    accessorKey: "topographicName",
+    accessorKey: "cieOTopographicName",
   },
   {
     header: "Código CIEO Morfológico",
-    accessorKey: "morphologicCode",
+    accessorKey: "cieOMorphologicCode",
   },
   {
     header: "Nombre CIEO Morfológico",
-    accessorKey: "morphologicName",
+    accessorKey: "cieOMorphologicName",
   },
   {
     header: "Comportamiento",
