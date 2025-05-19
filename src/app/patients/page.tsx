@@ -6,6 +6,7 @@ import PatientFilters from "./_components/PatientFilters";
 import { DataTable } from "~/components/ui/DataTable";
 import { PatientColumns } from "./_components/PatientColumns";
 import mockPatients from "~/lib/mockPatients.json";
+import FileUploadModal from "./_components/FileUpload";
 
 export default function Pacients() {
   const applyFilters = (filters: Record<string, any>): void => {};
@@ -16,10 +17,7 @@ export default function Pacients() {
         title="Lista de Pacientes"
         description="Gestione y busque pacientes registrados en el sistema."
       >
-        <Button variant="outline" className="mr-2">
-          <Upload className="mr-2 h-4 w-4" />
-          Importar datos
-        </Button>
+        <FileUploadModal/>
         <Button variant="outline" size="sm">
           <Download className="mr-2 h-4 w-4" />
           Descargar CSV

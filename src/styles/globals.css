@@ -5,79 +5,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
-  Theme CSS variables, matching your Tailwind config colors
-  Fill in each "H S% L%" value (hue, saturation, lightness) or hex code
-*/
-@layer base {
-  :root {
-    --radius: 0.5rem;
-
-    /* Core */
-    --border: /* H S% L% */;
-    --input: /* H S% L% */;
-    --ring: /* H S% L% */;
-    --background: /* H S% L% */;
-    --foreground: /* H S% L% */;
-
-    /* Primary */
-    --primary: /* H S% L% */;
-    --primary-foreground: /* H S% L% */;
-
-    /* Secondary */
-    --secondary: /* H S% L% */;
-    --secondary-foreground: /* H S% L% */;
-
-    /* Destructive */
-    --destructive: /* H S% L% */;
-    --destructive-foreground: /* H S% L% */;
-
-    /* Muted */
-    --muted: /* H S% L% */;
-    --muted-foreground: /* H S% L% */;
-
-    /* Accent */
-    --accent: /* H S% L% */;
-    --accent-foreground: /* H S% L% */;
-
-    /* Popover */
-    --popover: /* H S% L% */;
-    --popover-foreground: /* H S% L% */;
-
-    /* Card */
-    --card: /* H S% L% */;
-    --card-foreground: /* H S% L% */;
-
-    /* Sidebar */
-    --sidebar-background: /* H S% L% */;
-    --sidebar-foreground: /* H S% L% */;
-    --sidebar-primary: /* H S% L% */;
-    --sidebar-primary-foreground: /* H S% L% */;
-    --sidebar-accent: /* H S% L% */;
-    --sidebar-accent-foreground: /* H S% L% */;
-    --sidebar-border: /* H S% L% */;
-    --sidebar-ring: /* H S% L% */;
-
-    /* Medical */
-    /* Hex values for specific blue/gray scales */
-    --medical-blue: #0EA5E9;
-    --medical-lightBlue: #BAE6FD;
-    --medical-darkBlue: #1E40AF;
-    --medical-gray: #94A3B8;
-    --medical-lightGray: #F8FAFC;
-  }
-
-  /* Dark mode overrides */
-  .dark {
-    --border: /* H S% L% for dark */;
-    --input: /* etc */;
-    --ring: /* etc */;
-    --background: /* etc */;
-    --foreground: /* etc */;
-    /* ...repeat for all variables above... */
-  }
-}
-
 /* Custom container setup */
 @layer components {
   .container {
@@ -99,17 +26,23 @@
   }
 }
 
-
-
 /* Accordion animations */
 @layer utilities {
   @keyframes accordion-down {
-    from { height: 0; }
-    to { height: var(--radix-accordion-content-height); }
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
   }
   @keyframes accordion-up {
-    from { height: var(--radix-accordion-content-height); }
-    to { height: 0; }
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
   }
 
   .animate-accordion-down {
