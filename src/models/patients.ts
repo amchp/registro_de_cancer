@@ -12,4 +12,7 @@ export interface Patient {
   municipality: string;
   subregion: string;
   address: string;
+  mortalityDate: string | null;
+  deathCertificateNumber?: string;
+  registeredCauseOfDeath?: string;
 }

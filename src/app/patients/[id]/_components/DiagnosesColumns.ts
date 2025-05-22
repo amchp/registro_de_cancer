@@ -17,10 +17,6 @@ export const CancerDiagnosisColumns: ColumnDef<CancerDiagnosis>[] = [
     accessorKey: "incidenceDate",
   },
   {
-    header: "Fecha de Mortalidad",
-    accessorKey: "mortalityDate",
-  },
-  {
     header: "Código CIE-10",
     accessorKey: "cie10Code",
   },

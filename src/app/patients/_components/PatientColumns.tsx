@@ -43,6 +43,10 @@ export const PatientColumns: ColumnDef<Patient>[] = [
     accessorKey: "ageUnit",
   },
   {
+    header: "Fecha de Mortalidad",
+    accessorKey: "mortalityDate",
+  },
+  {
     id: "actions",
     header: "Acciones",
     cell: ({ row }) => (

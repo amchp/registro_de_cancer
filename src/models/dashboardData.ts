@@ -13,7 +13,7 @@ export interface DashboardType {
   cie10Name: string;
   behavior: string;
   tumorState: string;
-  multiple: boolean;
+  primary: boolean;
   deathCertificateNumber?: string;
   registeredCauseOfDeath?: string;
   documentType: string;

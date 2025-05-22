@@ -4,7 +4,6 @@ export interface CancerDiagnosis {
   diagnosisYear: number;
   diagnosisMethod: string;
   incidenceDate: string;
-  mortalityDate: string | null;
   cieOTopographicCode: string;
   cieOTopographicName: string;
   cieOMorphologicCode: string;
@@ -13,7 +12,5 @@ export interface CancerDiagnosis {
   cie10Name: string;
   behavior: string;
   tumorState: string;
-  multiple: boolean;
-  deathCertificateNumber?: string;
-  registeredCauseOfDeath?: string;
+  primary: boolean;
 }
